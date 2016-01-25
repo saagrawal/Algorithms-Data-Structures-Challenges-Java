@@ -30,6 +30,7 @@ repositories {
 dependencies {
 
     compile name: 'algs4'
+    testCompile 'junit:junit:4.12'
 }
 
 
