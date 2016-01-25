@@ -106,6 +106,30 @@ public class SinglyLinkedList<E> {
         return size;
     }
 
+
+    /**
+     * R-3.6: Give an algorithm for finding the second-to-last node in a singly linked list in which the last node
+     * is indicated by a null next reference
+     *
+     * @return - second to last node
+     */
+    public E findSecondToLastNode() {
+        if (head == null || size() < 2) {
+            return null;
+        } else if (size() == 2) {
+            return head.item;
+        } else {
+            SListNode<E> previous = head;
+            SListNode<E> next = head.next;
+
+            while (next != null) {
+                previous = next;
+                next = next.next;
+            }
+            return previous.item;
+        }
+    }
+
     private static class SListNode<E> {
 
         private E item;

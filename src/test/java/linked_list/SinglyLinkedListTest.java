@@ -6,6 +6,31 @@ import static org.junit.Assert.*;
 
 public class SinglyLinkedListTest {
 
+
+    @Test
+    public void testFindSecondToLastNode() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<String>();
+
+        /*C B D A*/
+        list.addFirst("A");
+        list.addFirst("D");
+        list.addFirst("B");
+        list.addFirst("C");
+
+        assertEquals("A", list.findSecondToLastNode());
+
+        /*D A*/
+        list = new SinglyLinkedList<String>();
+        list.addFirst("A");
+        list.addFirst("D");
+        assertEquals("D", list.findSecondToLastNode());
+
+        list = new SinglyLinkedList<String>();
+        list.addFirst("A");
+        assertNull(list.findSecondToLastNode());
+
+    }
+
     @Test
     public void testAddingAtBeginning() {
         SinglyLinkedList<String> list = new SinglyLinkedList<String>();
