@@ -28,7 +28,7 @@ public class CircularLinkedList<E> {
      * as it removes the need to perform additional operations to keep a head reference current.
      * In fact, our new implementation is arguably superior to our original singly linked list implementation, even if we are not interested in the new rotate method
      */
-    private SListNode<E> tail;
+    private ListNode<E> tail;
 
 
     /**
@@ -48,10 +48,10 @@ public class CircularLinkedList<E> {
      */
     public void addFirst(E e) {
         if (isEmpty()) {
-            tail = new SListNode<E>(e, null);
+            tail = new ListNode<E>(e, null);
             tail.next=tail;
         } else {
-            tail.next = new SListNode<E>(e, tail.next);
+            tail.next = new ListNode<E>(e, tail.next);
         }
         size++;
     }
@@ -63,10 +63,10 @@ public class CircularLinkedList<E> {
      */
     public void addLast(E e) {
         if (isEmpty()) {
-            tail = new SListNode<E>(e, null);
+            tail = new ListNode<E>(e, null);
             tail.next = tail;
         } else {
-            SListNode<E> newNode = new SListNode<E>(e, tail.next);
+            ListNode<E> newNode = new ListNode<E>(e, tail.next);
             tail.next = newNode;
             tail = newNode;
         }
@@ -137,17 +137,17 @@ public class CircularLinkedList<E> {
         return size;
     }
 
-    private static class SListNode<E> {
+    private static class ListNode<E> {
 
         private E item;
-        private SListNode<E> next;
+        private ListNode<E> next;
 
-        public SListNode(E item, SListNode<E> next) {
+        public ListNode(E item, ListNode<E> next) {
             this.item = item;
             this.next = next;
         }
 
-        public SListNode(E item) {
+        public ListNode(E item) {
             this(item, null);
         }
     }
